@@ -1,19 +1,10 @@
 from django.db import models
 
 
-class Destination:
+class Destination(models.Model):
 
-    id:int
-    name:str
-    desc:str
-    img:str
-    price:int
-    offer:bool
-
-    def __init__(self, id, name, desc, img, price, offer):
-        self.id = id
-        self.name = name
-        self.desc = desc
-        self.img = img
-        self.price = price
-        self.offer = offer
+    name = models.CharField(max_length=100)
+    desc = models.TextField()
+    img = models.ImageField(upload_to='pics')
+    price = models.IntegerField()
+    offer = models.BooleanField(default=False)
